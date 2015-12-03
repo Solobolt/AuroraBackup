@@ -114,8 +114,9 @@ public class HighScore : MonoBehaviour
 	}
 	
 	public void StoreScore (){
-        currentData.score += GameController.totalScore;
-        GameController.totalScore = 0;
+        int currentScore = GameController.totalScore;
+        currentData.score += currentScore;
+        currentScore = 0;
         ShowCurScore ();
 		Debug.Log ("Stored Score");
 	}
