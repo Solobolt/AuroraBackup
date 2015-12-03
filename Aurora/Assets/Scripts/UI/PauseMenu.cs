@@ -10,17 +10,18 @@ public class PauseMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        print("AT pause menu");
 	}
-	//re
-	// Update is called once per frame
-	void Update () {
-        
-        if (Input.GetKeyDown("escape")||Input.GetButtonDown("Pause"))
+    //re
+    // Update is called once per frame
+    void Update() {
+
+        if (Input.GetKeyDown("escape") || Input.GetButtonDown("Pause"))
         {
             togglePaused();
         }
-	}
+    }
+    
 
     //Swaps the game from pause to unPaused
     public void togglePaused()

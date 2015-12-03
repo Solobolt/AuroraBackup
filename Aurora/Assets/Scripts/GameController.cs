@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        numPlayers = 1;
+        Debug.Log("GAme starting");
         CheckControllers();
         createPlayers();
         Time.timeScale = 1;
@@ -73,10 +75,10 @@ public class GameController : MonoBehaviour {
                 if (controllers[i] != "")
                 {
                     //Adds to the number of players
-                    numPlayers++;
+                    numPlayers = i + 1;
                 }
             }
-        }
+        } 
     }
 
     //instantiates players
@@ -86,7 +88,6 @@ public class GameController : MonoBehaviour {
         {
             case 0:
                 Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-
                 break;
             case 1:
 

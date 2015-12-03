@@ -36,7 +36,7 @@ public class PauseMenuControlls : MonoBehaviour {
     //loads the main menu
     public void mainMenu()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel("MainMenu");
     }
 
 }
