@@ -87,6 +87,7 @@ public abstract class Enemy : MonoBehaviour
             RemoveHealth(10);
             Destroy(otherObject.gameObject);
         }
+
     }
 
     //Makes the objectr lose health
