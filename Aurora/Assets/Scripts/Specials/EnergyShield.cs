@@ -2,16 +2,53 @@
 using System.Collections;
 using System;
 
-public class EnergyShield : Weapon {
+public class EnergyShield : MonoBehaviour {
 
-    public override void fireSpecial()
+    public GameObject shield;
+
+    private string fire2;
+
+    public int playerNumb;
+    private bool numbChecked = false;
+
+    private AudioController audioController;
+
+    private Transform myTransform;
+
+    // Use this for initialization
+    void Start()
     {
-        //Create shield
-        print("Create shield");
+        myTransform = this.transform;
+        audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
+        shield.SetActive(false);
     }
 
-    public override void fireWeapon()
+    // Update is called once per frame
+    void Update()
     {
-        //DO Nothing
+        shield.SetActive(false);
+        SetStrings();
+        CheckInputs();
     }
+
+    //Handles Inputs
+    void CheckInputs()
+    {
+        if (Input.GetAxis(fire2) != 0 || Input.GetMouseButton(1))
+        {
+            shield.SetActive(true);
+        }
+    }
+
+    //Sets the controller strings
+    void SetStrings()
+    {
+        if (numbChecked == false)
+        {
+            playerNumb = gameObject.GetComponentInParent<PlayerAiming>().playerNumb;
+            fire2 = "P" + playerNumb + "_Fire2";
+        }
+    }
+
+    
 }
