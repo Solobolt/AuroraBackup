@@ -22,4 +22,9 @@ public class SingleFireLaser : Weapon {
             fireTime = 0;
         }
     }
+
+    public override void fireSpecial()
+    {
+        
+    }
 }
