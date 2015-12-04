@@ -26,7 +26,7 @@ public abstract class SpecialWeapon : MonoBehaviour {
 	//Check for inputs
 	private void CheckInputs()
 	{
-		if(Input.GetAxis(fire2) != 0)
+		if(Input.GetAxis(fire2) != 0|| Input.GetMouseButton(1))
         {
             Ability();
             //Special power
