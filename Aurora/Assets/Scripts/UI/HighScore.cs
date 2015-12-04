@@ -22,8 +22,9 @@ public class HighScore : MonoBehaviour
 	ScoreData currentData;
 	public List<ScoreData> scores;
 	List<float> scoreValues;
-	
-	public Text score1Text;
+    int currentScore;
+
+    public Text score1Text;
 	public Text score2Text;
 	public Text score3Text;
 	public Text score4Text;
@@ -37,7 +38,8 @@ public class HighScore : MonoBehaviour
 	public Text finalScoreText;
 	
 	void Start () {
-		scores = new List<ScoreData> ();
+        currentScore = GameController.totalScore;
+        scores = new List<ScoreData> ();
 		/*	for (int index = 0; index < 11; ++index) {
 			currentData = new ScoreData ();
 			currentData.score = Random.Range(0,100);
@@ -114,8 +116,7 @@ public class HighScore : MonoBehaviour
 	}
 	
 	public void StoreScore (){
-        int currentScore = GameController.totalScore;
-        currentData.score += currentScore;
+        currentData.score = currentScore;
         currentScore = 0;
         ShowCurScore ();
 		Debug.Log ("Stored Score");

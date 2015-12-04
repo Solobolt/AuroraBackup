@@ -8,7 +8,6 @@ public class LaserCannon : MonoBehaviour
 		
 		void Start () 
 		{
-
 			line = gameObject.GetComponent<LineRenderer>();
 			line.enabled = false;
 		}
