@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class EnergyShield : MonoBehaviour {
+public class EnergyShield : Weapon {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public override void fireSpecial()
+    {
+        //Create shield
+        print("Create shield");
+    }
+
+    public override void fireWeapon()
+    {
+        //DO Nothing
+    }
 }

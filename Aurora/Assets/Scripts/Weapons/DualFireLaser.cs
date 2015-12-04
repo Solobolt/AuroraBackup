@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class DualFireLaser : Weapon {
 
-    private float fireRate = 0.1f;
+    public float fireRate = 0.1f;
     private float fireTime = 1.0f;
 
     public GameObject projectile;
@@ -26,5 +27,10 @@ public class DualFireLaser : Weapon {
 
             fireTime = 0;
         }
+    }
+
+    public override void fireSpecial()
+    {
+        
     }
 }
