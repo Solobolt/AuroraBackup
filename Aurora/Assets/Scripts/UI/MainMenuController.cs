@@ -14,6 +14,12 @@ public class MainMenuController : MonoBehaviour {
         Application.LoadLevel("Options");
     }
 
+	public void loadMenu()
+	{
+		Application.LoadLevel ("MainMenu");
+	}
+
+
     //Exits the game (Doesnt work in editor but does work in executable)
     public void quitGame()
     {
