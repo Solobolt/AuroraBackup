@@ -38,6 +38,8 @@ public abstract class Enemy : MonoBehaviour
     public GameObject enemyLaser;
     public GameObject[] muzzle;
 
+	public GameObject explosion;
+
     // Use this for initialization
     void Start()
     {
@@ -100,6 +102,7 @@ public abstract class Enemy : MonoBehaviour
             GameController.totalScore += 100;
 			//highScore.StoreScore(points);
             audioController.playSound(audioController.EXP,audioController.enemyDeath,0.2f);
+			Instantiate(explosion,myTransform.position,Quaternion.identity);
         }
     }
 
