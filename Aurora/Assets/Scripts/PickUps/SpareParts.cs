@@ -8,6 +8,7 @@ public class SpareParts : PickUp {
         throw new NotImplementedException();
     }
 
+
     // Use this for initialization
     void Start () {
 	
