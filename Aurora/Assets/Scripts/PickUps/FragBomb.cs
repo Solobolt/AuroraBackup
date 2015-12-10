@@ -13,7 +13,7 @@ public class FragBomb : PickUp {
     {
         float angleDiff = 360 / projectileNum;
 
-        for (int i = 0; i < projectileNum; i++)
+        for (int i = 0; i <= projectileNum; i++)
         {
             Instantiate(projectile, myTransfrom.position, Quaternion.Euler(0, (angleDiff * (float)i), 0));
         }

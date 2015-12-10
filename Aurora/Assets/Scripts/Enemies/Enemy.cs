@@ -92,6 +92,19 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
+    public GameObject[] PickUps;
+
+    void DropPickUps()
+    {
+        int randDrop = Random.Range(0, 100);
+        if(randDrop <= 5)
+        {
+            int rand = Random.Range(0, PickUps.Length);
+            Instantiate(PickUps[rand], this.transform.position, Quaternion.Euler(0, 0, 0));
+        }
+        
+    }
+
     //Makes the objectr lose health
     public void RemoveHealth(int damage)
     {
@@ -100,6 +113,7 @@ public abstract class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
             GameController.totalScore += 100;
+            DropPickUps();
 			//highScore.StoreScore(points);
             audioController.playSound(audioController.EXP,audioController.enemyDeath,0.2f);
 			Instantiate(explosion,myTransform.position,Quaternion.identity);
