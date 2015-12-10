@@ -10,6 +10,8 @@ public class Miniboss : MonoBehaviour {
     private int damage = 10;
     public Slider healthBarSlider;
 
+    public GameObject GameOverScreen;
+
     //Weapon GameObjects
     public GameObject weapon1;
     public GameObject weapon2;
@@ -38,7 +40,7 @@ public class Miniboss : MonoBehaviour {
     {
         if(otherObject.gameObject.tag == "Laser")
         {
-            RemoveHealth();
+            RemoveHealth(damage);
             Destroy(otherObject.gameObject);
         }
     }
@@ -59,7 +61,7 @@ public class Miniboss : MonoBehaviour {
     }
 
     //Removes health
-    void RemoveHealth()
+   public void RemoveHealth(int amount)
     {
         health -= damage;
         //healthBarSlider.value = healthBarSlider.value - 0.001f;
@@ -72,6 +74,8 @@ public class Miniboss : MonoBehaviour {
             GameController.totalScore += 5000;
             healthBarSlider.value = 0f;
             Destroy(this.gameObject);
+
+            Instantiate(GameOverScreen);
         }
     }
 }

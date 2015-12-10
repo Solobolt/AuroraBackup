@@ -39,4 +39,10 @@ public class PauseMenuControlls : MonoBehaviour {
         Application.LoadLevel("MainMenu");
     }
 
+    //loads a desired scene
+    public void LoadLevel(string sceneName)
+    {
+        Application.LoadLevel(sceneName);
+    }
+
 }
