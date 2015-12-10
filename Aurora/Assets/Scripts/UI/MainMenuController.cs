@@ -38,6 +38,11 @@ public class MainMenuController : MonoBehaviour {
 		Application.LoadLevel ("MainMenu");
 	}
 
+	public void loadCredits()
+	{
+		Application.LoadLevel ("Credits");
+	}
+
 
     //Exits the game (Doesnt work in editor but does work in executable)
     public void quitGame()
