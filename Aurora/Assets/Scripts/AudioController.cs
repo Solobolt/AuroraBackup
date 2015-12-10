@@ -14,6 +14,9 @@ public class AudioController : MonoBehaviour {
     //Holds the sound that the enemy makes on death
     public AudioClip[] enemyDeath;
 
+	//Holds the sound that the player makes on death
+	public AudioClip[] playerDeath;
+
     //Holds the random number for minor varioations in sounds
     private int rand;
 

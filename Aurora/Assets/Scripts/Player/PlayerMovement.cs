@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public int playerNumb = 1;
 
+	public AudioController audioController;
     private GameController gameController;
 
     //Hold the wall values localy
@@ -23,12 +24,15 @@ public class PlayerMovement : MonoBehaviour {
     private string horizontal;
     private string vertical;    
 
+	public GameObject explosion;
+
 	// Use this for initialization
 	void Start () {
         myTransform = this.transform;
         SetStrings();
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         gameController.addPlayer(this);
+		audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
 	
 	// Update is called once per frame
@@ -136,6 +140,8 @@ public class PlayerMovement : MonoBehaviour {
 
             if (health <= 0)
             {
+				Instantiate(explosion,myTransform.position,Quaternion.identity);
+				audioController.playSound(audioController.SFX,audioController.playerDeath,0.2f);
                 Destroy(this.gameObject);
                 gameController.numPlayers--;
 				healthBarSlider.value =0f;

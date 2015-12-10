@@ -6,7 +6,8 @@ public abstract class Enemy : MonoBehaviour
 {
 	//public Slider healthBarSlider;
 	protected HighScore highScore;
-	public int points;
+	public int points=100;
+	public GameObject scoreRender;
 
     //Audio manager for sounds and game controller
     public AudioController audioController;
@@ -111,12 +112,15 @@ public abstract class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+
             Destroy(this.gameObject);
-            GameController.totalScore += 100;
+            GameController.totalScore += points;
             DropPickUps();
 			//highScore.StoreScore(points);
             audioController.playSound(audioController.EXP,audioController.enemyDeath,0.2f);
 			Instantiate(explosion,myTransform.position,Quaternion.identity);
+			GameObject goldPopup = Instantiate (scoreRender, Camera.main.WorldToViewportPoint (transform.position + new Vector3 (0, 1, 0)), Quaternion.identity) as GameObject;
+			goldPopup.GetComponent<GUIText>().text = gameObject.GetComponent<Enemy> ().points.ToString ();
         }
     }
 

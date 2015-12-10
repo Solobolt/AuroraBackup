@@ -16,10 +16,21 @@ public class Miniboss : MonoBehaviour {
     public GameObject weapon1;
     public GameObject weapon2;
     public GameObject weapon3;
-    
+
+	//Hold the transform
+	Transform myTransform;
+
+	//Explosion
+	public GameObject explosionWeapon;
+	public AudioController audioController;
+	public GameObject scoreRender;
+	public int points=5000;
+	  
     // Use this for initialization
     void Start () {
         SetWeapons(true,false,false);
+		myTransform = this.transform;
+		audioController = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioController>();
     }
 	
 	// Update is called once per frame
@@ -71,10 +82,15 @@ public class Miniboss : MonoBehaviour {
 
         if (health <= 0)
         {
-            GameController.totalScore += 5000;
+            GameController.totalScore += points;
             healthBarSlider.value = 0f;
             Destroy(this.gameObject);
-
+			audioController.playSound(audioController.EXP,audioController.enemyDeath,0.2f);
+			Instantiate(explosionWeapon,myTransform.position,Quaternion.identity);
+			Instantiate(explosionWeapon,new Vector3(-7.5f,0,5),Quaternion.identity);
+			Instantiate(explosionWeapon,new Vector3(7.5f,0,5),Quaternion.identity);
+			GameObject goldPopup = Instantiate (scoreRender, Camera.main.WorldToViewportPoint (transform.position + new Vector3 (0, 1, 0)), Quaternion.identity) as GameObject;
+			goldPopup.GetComponent<GUIText>().text = gameObject.GetComponent<Miniboss> ().points.ToString ();
             Instantiate(GameOverScreen);
         }
     }

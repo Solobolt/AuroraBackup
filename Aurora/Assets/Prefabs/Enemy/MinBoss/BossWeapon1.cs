@@ -23,6 +23,7 @@ public class BossWeapon1 : MonoBehaviour {
     void Start () {
         myTransform = this.transform;
         players = GameObject.FindGameObjectsWithTag("Player");
+
     }
 	
 	// Update is called once per frame

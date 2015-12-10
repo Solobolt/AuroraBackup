@@ -42,7 +42,7 @@ public class LaserCannon : MonoBehaviour
 				if(hit.rigidbody)
 				{
 					hit.rigidbody.AddForceAtPosition(transform.forward * 10, hit.point);
-				if(hit.collider.gameObject.tag=="Enemy" || hit.collider.gameObject.tag == "Miniboos")
+				if(hit.collider.gameObject.tag=="Enemy" || hit.collider.gameObject.tag == "Miniboss")
 				{
                     if(hit.collider.gameObject.GetComponent<Enemy>()!= null)
                     {
