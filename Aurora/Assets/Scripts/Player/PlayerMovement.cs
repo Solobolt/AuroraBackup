@@ -145,4 +145,14 @@ public class PlayerMovement : MonoBehaviour {
         }
         healthBarSlider.value = ((float)health / (float)TotalHealth);
     }
+
+    public void AddHealh(int amount)
+    {
+        health += amount;
+        if(health > TotalHealth)
+        {
+            health = TotalHealth;
+        }
+        healthBarSlider.value = ((float)health / (float)TotalHealth);
+    }
 }
