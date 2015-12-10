@@ -18,7 +18,7 @@ public class PauseMenuControlls : MonoBehaviour {
     //toggles the pause menu
     public void resumeGame()
     {
-        uiController.GetComponent<PauseMenu>().togglePaused();
+        uiController.gameObject.GetComponent<PauseMenu>().togglePaused();
     }
 
     //Restarts the Level
