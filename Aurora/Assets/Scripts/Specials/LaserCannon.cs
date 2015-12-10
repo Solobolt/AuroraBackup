@@ -50,7 +50,7 @@ public class LaserCannon : MonoBehaviour
                     }
                     if (hit.collider.gameObject.GetComponent<Miniboss>() != null)
                     {
-                        hit.collider.gameObject.GetComponent<Miniboss>().RemoveHealth(5);
+                        hit.collider.gameObject.GetComponent<Miniboss>().RemoveHealth(10);
                     }
                 }
 				}
