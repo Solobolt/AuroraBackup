@@ -155,4 +155,15 @@ public class PlayerMovement : MonoBehaviour {
         }
         healthBarSlider.value = ((float)health / (float)TotalHealth);
     }
+
+    public void SetHealth(int amount)
+    {
+        TotalHealth = amount;
+        health = TotalHealth;
+    }
+
+    public void SetSpeed(int amount)
+    {
+        moveSpeed = amount;
+    }
 }

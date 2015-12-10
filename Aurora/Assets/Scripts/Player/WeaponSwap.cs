@@ -3,7 +3,8 @@ using System.Collections;
 
 public class WeaponSwap : MonoBehaviour {
 
-    public int weaponNum = 1;
+    public int weaponNum;
+    private int playerNum;
     private int currentWeapon;
 
     public GameObject singleFireLaser;
@@ -12,7 +13,18 @@ public class WeaponSwap : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
+        playerNum = this.gameObject.GetComponent<PlayerMovement>().playerNumb;
+        if(playerNum == 1)
+        {
+            weaponNum = CustomShip.P1WeaNum;
+        }
+        else
+        {
+            weaponNum = CustomShip.P2WeaNum;
+        }
+
+        checkWeaponNumber();
+
 	}
 	
 	// Update is called once per frame
