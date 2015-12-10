@@ -3,11 +3,14 @@ using System.Collections;
 
 public abstract class PickUp : MonoBehaviour {
 
+    public GameObject playerHit;
+
     // Handles collitions
     void OnTriggerEnter(Collider otherObject)
     {
         if(otherObject.tag == "Player")
         {
+            playerHit = otherObject.gameObject;
             Effect();
         }
     }
