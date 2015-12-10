@@ -10,6 +10,8 @@ public class Miniboss : MonoBehaviour {
     private int damage = 10;
     public Slider healthBarSlider;
 
+    public GameObject GameOverScreen;
+
     //Weapon GameObjects
     public GameObject weapon1;
     public GameObject weapon2;
@@ -72,6 +74,8 @@ public class Miniboss : MonoBehaviour {
             GameController.totalScore += 5000;
             healthBarSlider.value = 0f;
             Destroy(this.gameObject);
+
+            Instantiate(GameOverScreen);
         }
     }
 }

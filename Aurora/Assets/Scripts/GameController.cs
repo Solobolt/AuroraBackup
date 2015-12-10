@@ -28,7 +28,8 @@ public class GameController : MonoBehaviour {
     public List<PlayerMovement> PlayerList = new List<PlayerMovement>();
     private bool isNumbSet = false;
 
-
+    public GameObject gameOverScreen;
+    private bool gameOverIsUp = false;
     // Use this for initialization
     void Start()
     {
@@ -45,8 +46,13 @@ public class GameController : MonoBehaviour {
         setPlayerNumb();
         if(numPlayers == 0)
         {
-            print(totalScore);
-            Application.LoadLevel("HighScore");
+            if(gameOverIsUp == false)
+            {
+                print(totalScore);
+                Instantiate(gameOverScreen);
+                gameOverIsUp = true;
+            }
+            
         }
         explotions = GameObject.FindGameObjectsWithTag("Explotion");
         for (int i = 0; i < explotions.Length; i++)
