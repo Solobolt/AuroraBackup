@@ -36,10 +36,17 @@ public class LaserCannon : MonoBehaviour
 					if(hit.rigidbody)
 					{
 						hit.rigidbody.AddForceAtPosition(transform.forward * 10, hit.point);
-					if(hit.collider.gameObject.tag=="Enemy")
+					if(hit.collider.gameObject.tag=="Enemy" || hit.collider.gameObject.tag == "Miniboos")
 					{
-						hit.collider.gameObject.GetComponent<Enemy>().RemoveHealth(5);
-					}
+                        if(hit.collider.gameObject.GetComponent<Enemy>()!= null)
+                        {
+                            hit.collider.gameObject.GetComponent<Enemy>().RemoveHealth(5);
+                        }
+                        if (hit.collider.gameObject.GetComponent<Miniboss>() != null)
+                        {
+                            hit.collider.gameObject.GetComponent<Miniboss>().RemoveHealth(5);
+                        }
+                    }
 					}
 				}
 				else

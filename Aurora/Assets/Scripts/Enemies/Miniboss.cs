@@ -38,7 +38,7 @@ public class Miniboss : MonoBehaviour {
     {
         if(otherObject.gameObject.tag == "Laser")
         {
-            RemoveHealth();
+            RemoveHealth(damage);
             Destroy(otherObject.gameObject);
         }
     }
@@ -59,7 +59,7 @@ public class Miniboss : MonoBehaviour {
     }
 
     //Removes health
-    void RemoveHealth()
+   public void RemoveHealth(int amount)
     {
         health -= damage;
         //healthBarSlider.value = healthBarSlider.value - 0.001f;

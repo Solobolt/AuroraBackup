@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
+    private GameObject[] explotions;
+
     //Holds a list of the controllers registered to the pc
     private string[] controllers;
 
@@ -45,6 +47,11 @@ public class GameController : MonoBehaviour {
         {
             print(totalScore);
             Application.LoadLevel("HighScore");
+        }
+        explotions = GameObject.FindGameObjectsWithTag("Explotion");
+        for (int i = 0; i < explotions.Length; i++)
+        {
+            Destroy(explotions[i], 1.0f);
         }
     }
 
