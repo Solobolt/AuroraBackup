@@ -5,17 +5,7 @@ using System;
 public class SpareParts : PickUp {
     public override void Effect()
     {
-        throw new NotImplementedException();
+        playerHit.GetComponent<PlayerMovement>().AddHealh(500);
+        Destroy(this.gameObject);
     }
-
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
